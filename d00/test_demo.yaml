@@ -1,0 +1,16 @@
+parse_args: "demo.txt"
+parse_result: 
+  - 199
+  - 200
+  - 208
+  - 210
+  - 200
+  - 207
+  - 240
+  - 269
+  - 260
+  - 263
+part_one_args:
+part_one_result: 7
+part_two_args:
+part_two_result: 5
