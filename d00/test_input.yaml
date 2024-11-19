@@ -1,0 +1,6 @@
+parse_args: "input.txt"
+parse_result:
+part_one_args:
+part_one_result: 1692
+part_two_args:
+part_two_result: 1724
