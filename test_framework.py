@@ -6,7 +6,7 @@ import os
 from itertools import product
 
 # tests to run
-days_to_be_tested = ["d00"]
+days_to_be_tested = ["d00", "d01"]
 
 scenarios = ["demo", "input"]
 ids = tuple(f"{id[1]} -> {id[0]}" for id in product(days_to_be_tested, scenarios))
