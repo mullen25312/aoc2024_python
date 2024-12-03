@@ -4,7 +4,7 @@
 import os
 import importlib
 
-dailyPuzzles = ["d00", "d01"]
+dailyPuzzles = ["d00", "d01", "d02"]
 
 if __name__ == "__main__":
 
