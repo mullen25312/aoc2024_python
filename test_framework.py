@@ -6,7 +6,7 @@ import os
 from itertools import product
 
 # tests to run
-days_to_be_tested = ["d00", "d01", "d02", "d03", "d04"]
+days_to_be_tested = ["d00", "d01", "d02", "d03", "d04", "d05"]
 
 scenarios = ["demo", "input"]
 ids = tuple(f"{id[1]} -> {id[0]}" for id in product(days_to_be_tested, scenarios))
@@ -47,14 +47,17 @@ class Tests_dxx:
     #         assert self.puzzle.parsed == self.test_config.parse_result
 
     def test_part_one(self):
-        self.puzzle.parse()
-        self.puzzle.part_one()
-        assert self.puzzle.part_one_result == self.test_config.part_one_result
+        if self.test_config.part_one_result == "":
+            pytest.skip("expected result not provided")
+        else:
+            self.puzzle.parse()
+            self.puzzle.part_one()
+            assert self.puzzle.part_one_result == self.test_config.part_one_result
 
     def test_part_two(self):
-        self.puzzle.parse()
-        self.puzzle.part_two()
         if self.test_config.part_two_result == "":
             pytest.skip("expected result not provided")
         else:
+            self.puzzle.parse()
+            self.puzzle.part_two()
             assert self.puzzle.part_two_result == self.test_config.part_two_result
