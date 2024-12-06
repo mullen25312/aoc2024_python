@@ -3,6 +3,7 @@ class SuperDailyPuzzle:
     parsed: None
     part_one_result: None
     part_two_result: None
+    temp: None
 
     def __init__(self, data_path):
         with open(data_path, "r") as file:
