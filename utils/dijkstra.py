@@ -12,7 +12,7 @@ class AbstractDijkstraSPF(object):
         queue = set()
 
         dist[s] = 0
-        prev[s] = s
+        prev[s] = [s]
         queue.add(s)
 
         while queue:
@@ -23,7 +23,10 @@ class AbstractDijkstraSPF(object):
                 alt = self.get_distance(u) + self.get_edge_weight(G, u, v)
                 if alt < self.get_distance(v):
                     dist[v] = alt
-                    prev[v] = u
+                    prev[v] = [u]
+                    queue.add(v)
+                elif alt == self.get_distance(v):
+                    prev[v].append(u)
                     queue.add(v)
             queue.remove(u)
             visited.add(u)
@@ -43,7 +46,16 @@ class AbstractDijkstraSPF(object):
     def get_path(self, v):
         """ Return the shortest path to v. """
         path = [v]
-        while self.__prev[v] != v:
-            v = self.__prev[v]
+        while v not in self.__prev[v]:
+            v = self.__prev[v][0]
             path.append(v)
         return path[::-1]
+
+    def get_all_visited(self, v, visited):
+        if v in self.__prev[v]:
+            return visited
+        else:
+            for option in self.__prev[v]:
+                visited.add(option)
+                visited.update(self.get_all_visited(option, visited))
+            return visited
