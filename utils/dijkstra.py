@@ -51,6 +51,14 @@ class AbstractDijkstraSPF(object):
             path.append(v)
         return path[::-1]
 
+    def get_number_of_paths(self, v):
+        if v in self.__prev[v]:
+            return 1
+        tmp = 0
+        for option in self.__prev[v]:
+                tmp += self.get_number_of_paths(option)
+        return tmp
+
     def get_all_visited(self, v, visited):
         if v in self.__prev[v]:
             return visited
