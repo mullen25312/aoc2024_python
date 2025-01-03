@@ -4,8 +4,8 @@
 import os
 import importlib
 
-dailyPuzzles = ["d00", "d01", "d02", "d03", "d04", "d05", "d06", "d07", "d08", "d09", "d10", "d11", "d13", "d14", "d16", "d18", "d19", "d20", "d22", "d25"]
-# dailyPuzzles = ["d13"]
+dailyPuzzles = ["d00", "d01", "d02", "d03", "d04", "d05", "d06", "d07", "d08", "d09", "d10", "d11", "d13", "d14", "d16", "d18", "d19", "d20", "d22", "d23", "d25"]
+# dailyPuzzles = ["d23"]
 
 if __name__ == "__main__":
 
